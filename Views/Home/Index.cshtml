@@ -1,0 +1,27 @@
+﻿@model List<K2Portal.Models.K2WorklistItem>
+
+<h2>K2 Worklist</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Folio</th>
+            <th>Process</th>
+            <th>Activity</th>
+            <th>Start Date</th>
+            <th>Serial Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Folio</td>
+                <td>@item.ProcessName</td>
+                <td>@item.ActivityName</td>
+                <td>@item.StartDate</td>
+                <td>@item.SerialNumber</td>
+            </tr>
+        }
+    </tbody>
+</table>
