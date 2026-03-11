@@ -20,7 +20,8 @@
                         <th>Workflow</th>
                         <th>Activity</th>
                         <th style="width:180px;">Start Date</th>
-                        <th style="width:120px;">Serial</th>
+                        @* <th style="width:120px;">Serial</th> *@
+                        <th style="width:120px;">Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,7 +52,8 @@
                             </td>
 
                             <td>
-                                <code>@item.SerialNumber</code>
+                                @* <code>@item.SerialNumber</code> *@
+                                <code>@item.Status</code>
                             </td>
                         </tr>
                     }
