@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("K2Portal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b153d88f455f60c7b681ece0bb2064c6fbe1e86")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f1acb87b0e852b3fa3804cbac0f6bc267d9dfb0")]
 [assembly: System.Reflection.AssemblyProductAttribute("K2Portal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("K2Portal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

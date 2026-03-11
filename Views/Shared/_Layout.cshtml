@@ -11,21 +11,138 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">K2Portal</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/logo.png" alt="Logo" style="height:32px; margin-right:10px;">
+                    <span class="fw-semibold" style="color:grey">K2 Portal</span>
+                </a>
+
+                <!-- Mobile toggle -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarMain">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+
+                <!-- Menu -->
+                <div class="collapse navbar-collapse" id="navbarMain">
+
+                    <!-- Left Menu -->
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-controller="Home" asp-action="Index">Dashboard</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown">
+                                    Systems
+                            </a>
+
+                            <ul class="dropdown-menu modern-dropdown">
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">ระบบเบิกภาษีรถใช้งาน</a>
+                                    <ul class="dropdown-menu modern-dropdown">
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/ReturnTaxForm1/" target="_blank">สาขา - แบบฟอร์มร้องขอ</a></li>
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/ReturnTaxForm__RequestHistory/" target="_blank">สาขา - ประวัติเอกสารขอคืนภาษี</a></li>
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/ReturnTaxForm__S030__SelectDocumentForReview/" target="_blank">ทะเบียน - รายการเอกสารรอส่งให้บัญชี</a></li>
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/ReturnTaxForm__GroupHistory/" target="_blank">ทะเบียน - ประวัติชุดเอกสารส่งให้บัญชี</a></li>
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/ReturnTaxForm__GroupActionHistory/" target="_blank">บัญชี - ประวัติการตรวจสอบชุดเอกสาร</a></li>
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/ReturnTaxForm__Audit/" target="_blank">ข้อมูลสำหรับ Audit</a></li>
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/FormName" target="_blank">คู่มือการใช้งาน</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">AMC</a>
+                                    <ul class="dropdown-menu modern-dropdown">
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Runtime/Form/AMCSystem" target="_blank">หน้าหลัก</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">ระบบขายทอดตลาด(กลาง)</a>
+                                    <ul class="dropdown-menu modern-dropdown">
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Runtime/Form/ChangeRequestForm/" target="_blank">แบบฟอร์มร้องขอ</a></li>
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/SPSV2.F.Calendar/" target="_blank">ปฏิทินขายทอดตลาด</a></li>
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/SPSV2.F.HistoryAuctionPrice/?_state=HistoryRequest" target="_blank">ประวัติราคาประมูล</a></li>
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/SPSV2.F.HistoryAuctionPrice/?_state=HistoryAction" target="_blank">ประวัติการดำเนินการ</a></li>
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/SPSV2.F.ChequeManagement/?_state=Accounting" target="_blank">จัดการเช็ค</a></li>
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/SPSV2.F.HistoryActionChequeTracking/" target="_blank">ประวัติเอกสารติดตามเช็ค</a></li>
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/SPSV2.F.ChequeManagement/?_state=Admin" target="_blank">ส่งข้อมูลสรุปการใช้เช็ค</a></li>
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/SPSV2.F.HistoryChequeSummary/" target="_blank">ประวัติเอกสารสรุปการใช้เช็ค</a></li>
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/SPSV2.F.ChequeReport/" target="_blank">รายงานเช็ค</a></li>
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Designer/Runtime/Form/FormName" target="_blank">คู่มือการใช้งาน</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Change Request</a>
+
+                                    <ul class="dropdown-menu modern-dropdown">
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Runtime/Form/ChangeRequestForm/" target="_blank">แบบฟอร์มร้องขอ</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">ระบบเบิกสวัสดิการ</a>
+
+                                    <ul class="dropdown-menu modern-dropdown">
+                                        <li><a class="dropdown-item" href="https://k2-app-prod.srisawadpower.com/Runtime/Form/BR-F-Request-Form/" target="_blank">แบบฟอร์มร้องขอ</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
                         </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown">
+                                    Administrator
+                            </a>
+
+                            <ul class="dropdown-menu modern-dropdown">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">User Management</a>
+                                    <ul class="dropdown-menu modern-dropdown">
+                                        <li><a class="dropdown-item" href="#" target="_blank">Create User</a></li>
+                                        <li><a class="dropdown-item" href="#" target="_blank">Reset Password</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- Right Menu -->
+                    <ul class="navbar-nav ms-auto align-items-center">
+
+                        <!-- User -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
+                                Username
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item" href="#">Profile</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Settings</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </div>
             </div>
