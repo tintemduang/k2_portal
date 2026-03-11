@@ -16,8 +16,19 @@ namespace K2Portal.Controllers
 
         public async Task<IActionResult> Index()
         {
+            var tasks = await _k2ApiService.GetK2Tasks();
+            return View(tasks);
+        }
+
+        public async Task<IActionResult> K2Worklist()
+        {
             var worklist = await _k2ApiService.GetWorklist("41837");
             return View(worklist);
+        }
+        public async Task<IActionResult> K2Tasks()
+        {
+            var tasks = await _k2ApiService.GetK2Tasks();
+            return View(tasks);
         }
     }
 }
