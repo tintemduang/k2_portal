@@ -1,27 +1,39 @@
 ﻿@model List<K2Portal.Models.K2WorklistItem>
 
-<h2>K2 Worklist</h2>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<table border="1">
-    <thead>
-        <tr>
-            <th>Folio</th>
-            <th>Process</th>
-            <th>Activity</th>
-            <th>Start Date</th>
-            <th>Serial Number</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Folio</td>
-                <td>@item.ProcessName</td>
-                <td>@item.ActivityName</td>
-                <td>@item.StartDate</td>
-                <td>@item.SerialNumber</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="container mt-4">
+
+    <h2 class="mb-4">K2 Worklist</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <table class="table table-striped table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Folio</th>
+                        <th>Workflow</th>
+                        <th>Activity</th>
+                        <th>Start Date</th>
+                        <th>Serial Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Folio</td>
+                            <td>@item.WorkflowDisplayName</td>
+                            <td>@item.ActivityName</td>
+                            <td>@item.StartDate?.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>@item.SerialNumber</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
