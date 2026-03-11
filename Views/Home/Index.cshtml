@@ -1,4 +1,7 @@
 ﻿@model List<K2Portal.Models.K2TaskItem>
+@{
+    ViewData["Title"] = "Home";
+}
 
 <div class="container mt-4">
 
@@ -25,8 +28,10 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td style="max-width:540px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
-                                @item.WorkflowInstanceFolio
+                            <td style="max-width:540px; white-space:nowrap; overflow:hidden;">
+                                <a href="@item.FormURL" target="_blank" class="text-decoration-none">
+                                    @item.WorkflowInstanceFolio
+                                </a>
                             </td>
 
                             <td>
