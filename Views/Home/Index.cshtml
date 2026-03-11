@@ -4,20 +4,13 @@
 }
 
 <div class="container mt-4">
-
     <div class="card shadow-sm border-0">
         <div class="card-header bg-white d-flex align-items-center justify-content-between">
-
             <div class="d-flex align-items-center gap-2">
                 <h4 class="mb-0">📋 Worklist</h4>
                 <span class="badge bg-primary">@Model.Count</span>
             </div>
-
-            <input type="text"
-                id="searchInput"
-                class="form-control w-25"
-                placeholder="🔍 Search task">
-
+            <input type="text" id="searchInput" class="form-control w-25" placeholder="🔍 Search task">
         </div>
 
         <div class="card-body p-0">
@@ -32,8 +25,8 @@
                         <th style="width:120px;">Status</th>
                     </tr>
                 </thead>
-                <tbody>
 
+                <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
@@ -65,35 +58,21 @@
                             </td>
                         </tr>
                     }
-
                 </tbody>
             </table>
-
         </div>
-
-        @* <div class="card-footer bg-white">
-            <nav>
-                <ul class="pagination justify-content-center mb-0" id="pagination"></ul>
-            </nav>
-        </div> *@
-
+        
         <div class="card-footer bg-white d-flex justify-content-between align-items-center">
-
             <nav>
                 <ul class="pagination mb-0" id="pagination"></ul>
             </nav>
 
             <div>
                 <small class="text-muted">Go to page</small>
-                <input type="number" id="gotoPage" min="1"
-                    style="width:70px"
-                    class="form-control d-inline-block form-control-sm">
+                <input type="number" id="gotoPage" min="1" style="width:70px" class="form-control d-inline-block form-control-sm">
             </div>
-
         </div>
-
     </div>
-
 </div>
 
 <script>
@@ -107,48 +86,33 @@ const searchInput = document.getElementById("searchInput");
 let filteredRows = [...rows];
 let currentPage = 1;
 
-function displayPage(page) {
-
+function displayPage(page){
     currentPage = page;
-
     rows.forEach(row => row.style.display = "none");
-
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
-
-    filteredRows.slice(start, end).forEach(row => {
-        row.style.display = "";
-    });
-
+    filteredRows.slice(start, end).forEach(row => row.style.display = "");
     renderPagination();
 }
 
-function renderPagination() {
-
+function renderPagination(){
     pagination.innerHTML = "";
-
     const pageCount = Math.ceil(filteredRows.length / rowsPerPage);
-
     const maxVisible = 5;
     let start = Math.max(1, currentPage - 2);
     let end = Math.min(pageCount, start + maxVisible - 1);
-
-    if (end - start < maxVisible - 1) {
-        start = Math.max(1, end - maxVisible + 1);
-    }
+    if (end - start < maxVisible - 1) start = Math.max(1, end - maxVisible + 1);
 
     addPageItem("«", currentPage - 1, currentPage === 1);
 
-    if (start > 1) {
+    if (start > 1){
         addPageItem(1, 1);
         if (start > 2) addDots();
     }
 
-    for (let i = start; i <= end; i++) {
-        addPageItem(i, i, false, i === currentPage);
-    }
+    for (let i = start; i <= end; i++) addPageItem(i, i, false, i === currentPage);
 
-    if (end < pageCount) {
+    if (end < pageCount){
         if (end < pageCount - 1) addDots();
         addPageItem(pageCount, pageCount);
     }
@@ -156,62 +120,42 @@ function renderPagination() {
     addPageItem("»", currentPage + 1, currentPage === pageCount);
 }
 
-function addPageItem(text, page, disabled = false, active = false) {
-
+function addPageItem(text, page, disabled = false, active = false){
     const li = document.createElement("li");
     li.className = "page-item";
-
     if (disabled) li.classList.add("disabled");
     if (active) li.classList.add("active");
 
     const a = document.createElement("a");
     a.className = "page-link";
     a.innerText = text;
-
-    a.addEventListener("click", () => {
-        if (!disabled) displayPage(page);
-    });
+    a.addEventListener("click", () => { if (!disabled) displayPage(page); });
 
     li.appendChild(a);
     pagination.appendChild(li);
 }
 
-function addDots() {
-
+function addDots(){
     const li = document.createElement("li");
     li.className = "page-item disabled";
-
     const span = document.createElement("span");
     span.className = "page-link";
     span.innerText = "...";
-
     li.appendChild(span);
     pagination.appendChild(li);
 }
 
 gotoPageInput.addEventListener("change", () => {
-
     const pageCount = Math.ceil(filteredRows.length / rowsPerPage);
     let page = parseInt(gotoPageInput.value);
-
-    if (page >= 1 && page <= pageCount) {
-        displayPage(page);
-    }
-
+    if (page >= 1 && page <= pageCount) displayPage(page);
 });
 
-
 // 🔎 SEARCH
-searchInput.addEventListener("keyup", function () {
-
+searchInput.addEventListener("keyup", function(){
     const keyword = this.value.toLowerCase();
-
-    filteredRows = rows.filter(row => {
-        return row.innerText.toLowerCase().includes(keyword);
-    });
-
+    filteredRows = rows.filter(row => row.innerText.toLowerCase().includes(keyword));
     displayPage(1);
-
 });
 
 displayPage(1);
