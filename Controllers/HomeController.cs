@@ -17,7 +17,12 @@ namespace K2Portal.Controllers
         public async Task<IActionResult> Index()
         {
             var tasks = await _k2ApiService.GetK2Tasks();
-            return View(tasks);
+
+            var sortedTasks = tasks
+                .OrderByDescending(x => x.TaskStartDate)
+                .ToList();
+
+            return View(sortedTasks);
         }
 
         public async Task<IActionResult> K2Worklist()
